@@ -1,13 +1,16 @@
 import java.util.ArrayList;
+import java.util.List;
+
 // an outer class to manage the account as a whole
 public class Account {
     // an inner class to manage posts
     public class Post {
+
         public String title;
         public String video;
-        public int likes;
+        public String likes;
 
-        public Post(String title, String video, int likes) {
+        public Post(String title, String video, String likes) {
             this.title = title;
             this.video = video;
             this.likes = likes;
@@ -30,7 +33,7 @@ public class Account {
             return "Video: " + video;
         }
 
-        public void setLikes(int likes) {
+        public void setLikes(String likes) {
             this.likes = likes;
         }
 
@@ -47,12 +50,13 @@ public class Account {
     //private String email;
     private String description;
     public Post post;
-    public ArrayList<Post> posts;
+    public List posts;
 
     // constructor with basic account details
     public Account(String username,String description){
         this.username=username;
         this.description=description;
+        this.posts= new ArrayList<>();
     }
     public Account(){}
 
@@ -60,7 +64,7 @@ public class Account {
 
     // retrieve and set information
     public String getUsername(){
-        return "The account name is: "+ username;
+        return username;
     }
     public void setUsername(String username) {
         this.username = username;
@@ -71,13 +75,18 @@ public class Account {
     public String getDescription(){
         return "The profile description is: "+ description;
     }
-    public ArrayList<Post> getPosts() {
+    public List<Post> getPosts() {
         return posts;
     }
 
-    public void addPost(Post post) {
-        posts.add(0, post);
-    }
+    public void addPost(String title,String video,String likes) {
+        Post post = new Post(title,video,likes);
+        this.posts.add(post);}
+
+
+
+
+
 
     // output edit for later
     public String toString(){
