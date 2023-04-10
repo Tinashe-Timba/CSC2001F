@@ -10,6 +10,7 @@ public class Main {
         Database Data = new Database();
 
         Scanner s = new Scanner(System.in);
+//        Menu for user
         System.out.println("Choose an action from the menu:" + '\n' +
                 "1. Find the profile description for a given account" + '\n' +
                 "2. List all accounts" + '\n' +
@@ -37,12 +38,12 @@ public class Main {
                 Data.AllAccs();
                 s.nextLine();
 
-            } else if ("3".equals(option)) {                                                                               //works
+            } else if ("3".equals(option)) {                                      //asks user for input and stores into variables for creation of an acc                                         //works
                 System.out.println("Enter the account name");
                 String username = s.nextLine();
                 System.out.println("Enter account description");
                 String Description = s.nextLine();
-                System.out.println("Enter post title");
+                System.out.println("Enter post title");                     // an account must have posts
                 String title = s.nextLine();
                 System.out.println("Enter video");
                 String video = s.nextLine();
@@ -67,10 +68,10 @@ public class Main {
                 if (posts !=null) {
                     System.out.println("These are "+name+"'s posts.");
                     for (Account.Post post : posts) {
-                        System.out.println(post.getTitle() + '\n' + post.getVideo() + '\n' + post.getLikes());
+                        System.out.println(post.getTitle() + '\n' + post.getVideo() + '\n' + post.getLikes()); //concatenates the information for a post
                     }
                 }
-                else {System.out.println("No posts yet.");}
+                else {System.out.println("No posts yet.");} // error message if there are no posts for an acc
 
                 }
                 else if ("6".equals(option)) {                                                                           // addition of posts works well
@@ -88,14 +89,14 @@ public class Main {
             else if ("7".equals(option)) {
                 Scanner scanner = null;
                 try {
-                    scanner = new Scanner(Paths.get("src/dataset.txt"));
+                    scanner = new Scanner(Paths.get("\\Users\\3520\\Desktop\\CSC2001F\\Assignmnet1\\TIKTOK\\src\\dataset.txt")); // gets  data from txt file in src
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
                 while (scanner.hasNextLine()){
                     String line = scanner.nextLine();
                     String[] parts= line.split(" ");
-                     if (parts[0].equals("Create")){
+                     if (parts[0].equals("Create")){                        //if line begins with Create then create acc
                          String name= parts[1];
                          String[] D1= Arrays.copyOfRange(parts,2,parts.length);
                          String description= String.join(" ",D1);
@@ -103,7 +104,7 @@ public class Main {
                          Data.createAcc(account);
 
                      }
-                     else if ((parts[0].equals("Add"))){
+                     else if ((parts[0].equals("Add"))){                //if line begins with Add then add a post to an acc
                          String name= parts[1];
                          String video=parts[2];
                          String likes =parts[3];
@@ -112,7 +113,8 @@ public class Main {
                          Data.makePost(name, title, video, likes);
                      }
                 }
-                
+                System.out.println("Accounts and posts have been loaded");
+
                 }
 
             if (!option.equalsIgnoreCase("0") && !option.equalsIgnoreCase("8")) {

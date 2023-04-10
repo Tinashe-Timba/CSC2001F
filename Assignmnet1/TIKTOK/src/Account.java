@@ -1,3 +1,6 @@
+//CREATING An ACCOUNTS CLASS FOR THE ACCOUNTS
+//Author:Tinashe Timba
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +19,7 @@ public class Account {
             this.likes = likes;
         }
         public Post(){}
-
+    //get and set the instance  variables
         public String getTitle() {
             return "Title: " + title;
         }
@@ -50,7 +53,7 @@ public class Account {
     //private String email;
     private String description;
     public Post post;
-    public List posts;
+    public List posts; // creates an array of posts
 
     // constructor with basic account details
     public Account(String username,String description){
@@ -79,9 +82,10 @@ public class Account {
         return posts;
     }
 
+    //Adds a post to an account using the account array list
     public void addPost(String title,String video,String likes) {
         Post post = new Post(title,video,likes);
-        this.posts.add(post);}
+        this.posts.add(0,post);}
 
 
 

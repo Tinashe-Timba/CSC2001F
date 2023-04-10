@@ -1,4 +1,9 @@
+import java.util.ArrayList;
+
+//CREATING A BINARY TREE FOR THE ACCOUNTS
+//Author:Tinashe Timba
 public class BT {
+    ArrayList<String> accs=new ArrayList<>();
     BTN root;
 
     public BT() {
@@ -44,7 +49,7 @@ public class BT {
     }
 
 
-
+// insert a new account into the BST
     public void insert(Account acc, BTN node) {
         String user = acc.getUsername(); // extract the username that is about to be added
         String nodeUser = node.getUsername();// extracts existing username
@@ -62,7 +67,7 @@ public class BT {
         }
     }
 
-    // find an account using username as comparison
+    // find an account using username as comparison key
     public BTN find(Account acc) {
         if (root == null)
             return null;
@@ -85,6 +90,7 @@ public class BT {
     // delete account
     public void delete(Account acc) {
         root = delete(acc, root);
+        accs.remove(acc.getUsername());
     }
 
     public BTN delete(Account acc, BTN node) {
@@ -128,6 +134,10 @@ public class BT {
     // inorder traversal
     public void inOrder(){
         inOrder(root);
+
+    }
+    public void inOrder1(){
+        inOrder1(root);
     }
     public void inOrder(BTN node){
         if (node!=null) {
@@ -137,6 +147,20 @@ public class BT {
         }
 
         }
+
+    public void inOrder1(BTN node){
+        if (node!=null) {
+            inOrder1(node.getLeft());
+            //System.out.println(node.acc.getUsername());
+            this.accs.add(node.acc.getUsername());
+            inOrder1(node.getRight());
+        }
+
+    }
+    public ArrayList<String> list(){
+
+        return  accs;
+    }
 
     }
 

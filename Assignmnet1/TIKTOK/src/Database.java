@@ -1,15 +1,17 @@
+// a class to access the binary tree easier and make main code shorter
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.BinaryOperator;
 
 //creates a new class to access accounts in binary tree
 public class Database {
-    private BT accounts;
+    private ArrayList<Account> Accounts;
+    public BT accounts;
 
     //
     public Database() {
         // creates a binary for the set of users
         accounts = new BT();
+        Accounts = new ArrayList<Account>();
     }
 
     // create , delete a an acc
@@ -52,8 +54,9 @@ public class Database {
 
     }
 
-    public void AllAccs() {
+    public String AllAccs() {
         accounts.inOrder();
+        return null;
     }
 
 }
