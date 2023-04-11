@@ -4,11 +4,15 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class represents an account  for the TOKTIK app
+ */
+
 // an outer class to manage the account as a whole
 public class Account {
     // an inner class to manage posts
     public class Post {
-
+    //making variables for Posts
         public String title;
         public String video;
         public String likes;
@@ -40,6 +44,11 @@ public class Account {
             this.likes = likes;
         }
 
+        /**get number of likes
+         *
+         *
+         * @return String
+         */
         public String getLikes() {
             return "Number of Likes: " + likes;
         }

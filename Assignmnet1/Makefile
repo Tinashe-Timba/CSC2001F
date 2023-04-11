@@ -5,11 +5,11 @@ BINDIR=bin
 $(BINDIR)/%.class:$(SRCDIR)/%.java
 	$(JAVAC) -d $(BINDIR)/ -cp $(BINDIR) $<
 
-CLASSES=Account.class BT.class Database.class Main.class TIKTOK.class
+CLASSES=Account.class BT.class Database.class  TokTik.class
 CLASS_FILES=$(CLASSES:%.class=$(BINDIR)/%.class)
 
 default: $(CLASS_FILES)
 clean:
 	rm $(BINDIR)/*.class
 run: $(CLASS_FILES)
-	java -cp bin
+	java -cp bin TokTik

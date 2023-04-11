@@ -147,7 +147,7 @@ public class BT {
         }
 
         }
-
+//inorder1 loads accounts to arraylist that will be used in the TokTik class
     public void inOrder1(BTN node){
         if (node!=null) {
             inOrder1(node.getLeft());

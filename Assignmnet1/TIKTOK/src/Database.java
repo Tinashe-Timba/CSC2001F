@@ -53,7 +53,7 @@ public class Database {
             return null;
 
     }
-
+//  method to return all accounts
     public String AllAccs() {
         accounts.inOrder();
         return null;

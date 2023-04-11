@@ -13,7 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class TokTik extends JFrame {
-
+// create buttons to be added to the gui interface
     private JButton DESCRIPTION;
     private JButton load;
     private JButton ADDp;
@@ -27,6 +27,7 @@ public class TokTik extends JFrame {
     private JScrollPane ALLACCS;
 
     public TokTik() {
+        // create a new toktik database and name buttons
     Database Data = new Database();
     DESCRIPTION = new JButton("1. Find the profile description for a given account");
     load = new JButton("7. Load a file of actions from disk and process this");
@@ -37,7 +38,7 @@ public class TokTik extends JFrame {
     LISTACC = new JButton("2. List all accounts");
 
 
-
+// add actions for the buttons
     DESCRIPTION.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -95,17 +96,7 @@ public class TokTik extends JFrame {
             JOptionPane.showMessageDialog(null,"Account has been deleted.");
         }
     });
-    JPanel panel = new JPanel();
-    panel.add(DESCRIPTION);
-    panel.add(load);
-    panel.add(ADDp);
-    panel.add(DisplayPosts);
-    panel.add(DELETEACC);
-    panel.add(CREATEACC);
-    panel.add(LISTACC);
 
-    add(panel);
-    setSize(400, 400);
     DisplayPosts.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -175,14 +166,16 @@ public class TokTik extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
             }
+
         });
+
     }
 
 
     public static void main(String[] args) {
         TokTik tiktoc = new TokTik();
 
-        JPanel panel = new JPanel(new GridLayout(2, 4));
+        JPanel panel = new JPanel(new GridLayout(8, 1));
         panel.add(tiktoc.DESCRIPTION);
         panel.add(tiktoc.LISTACC);
         panel.add(tiktoc.CREATEACC);
@@ -192,10 +185,7 @@ public class TokTik extends JFrame {
         panel.add(tiktoc.load);
         panel.add(tiktoc.Quit);
 
-
-
-
-        JFrame frame = new JFrame("TIKTOK");
+        JFrame frame = new JFrame("TOKTIK");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.add(panel); // add the panel to the frame
         frame.pack();
