@@ -88,6 +88,7 @@ public class TokTik extends JFrame {
                 Account account = new Account(username, Description);
                 Data.createAcc(account);
                 Data.makePost(username, title, video, likes);
+                JOptionPane.showMessageDialog(null,"Account has been created");
 
 
             }
@@ -133,14 +134,16 @@ public class TokTik extends JFrame {
                 String video = JOptionPane.showInputDialog("Add video");
                 String likes = JOptionPane.showInputDialog("Enter number of likes");
                 Data.makePost(username, title, video, likes);
+                JOptionPane.showMessageDialog(null, "Post has been added.");
             }
         });
         load.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Scanner scanner = null;
+                String input = JOptionPane.showInputDialog("Enter the file name:");
                 try {
-                    scanner = new Scanner(Paths.get("\\Users\\3520\\Desktop\\CSC2001F\\Assignmnet1\\TIKTOK\\src\\dataset.txt")); // gets  data from txt file in src
+                    scanner = new Scanner(Paths.get("src//"+input)); // gets  data from txt file in src
                 } catch (IOException error) {
                     throw new RuntimeException(error);
                 }

@@ -14,4 +14,4 @@ default: $(CLASS_FILES)
 clean:
 	rm $(BINDIR)/*.class
 run: $(CLASS_FILES)
-	java -cp bin:lib/forms_rt.jar TokTik
+	java -cp bin:lib/maforms_rt.jar TokTik
