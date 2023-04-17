@@ -1,3 +1,8 @@
+package main;
+//AUTHOR:TINASHE TIMBA
+// STUDENT NUMBER:TMBTIN004
+
+
 // a class to access the binary tree easier and make main code shorter
 import java.util.ArrayList;
 import java.util.List;

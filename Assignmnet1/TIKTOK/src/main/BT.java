@@ -1,3 +1,7 @@
+package main;
+//AUTHOR:TINASHE TIMBA
+// STUDENT NUMBER:TMBTIN004
+
 import java.util.ArrayList;
 
 //CREATING A BINARY TREE FOR THE ACCOUNTS
